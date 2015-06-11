@@ -16,3 +16,13 @@ test:
   username: root
   password: 
   host: localhost
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: dbhpfl2jv671rc
+  username: djgazvurjwkntq
+  password: Q9o4LQIhUVMY7AdmIMoPjkch9u
+  host: ec2-54-83-17-8.compute-1.amazonaws.com
+  port: 5432
+  pool: 10
