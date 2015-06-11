@@ -30,6 +30,8 @@ gem 'mysql2'
 gem 'bootstrap-datepicker-rails', '~> 1.3.0.2'
 gem 'bootstrap-sass', '~> 3.3.1'
 
+gem 'pg', '~> 0.17.1'
+
 group :doc do
   gem 'sdoc', require: false
 end
@@ -68,6 +70,6 @@ group :test do
   gem 'fakeweb', '~> 1.3.0'
 end
 
-group :production do
-   gem 'pg', '~> 0.17.1'
-end
+# group :production do
+#    gem 'pg', '~> 0.17.1'
+# end
