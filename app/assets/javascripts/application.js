@@ -10,6 +10,11 @@ function dateSetup(){
 
 $(document).ready(function(){
   dateSetup();
+  
+  $("#closeFlash").click(function(){
+    $(".flashNotice").hide(400);
+  });
+  
   $.datepicker.regional['pt-BR'] = {
                 closeText: 'Fechar',
                 prevText: '&#x3c;Anterior',
