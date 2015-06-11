@@ -33,7 +33,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     respond_to do |format|
       if @student.save
-      	flash[:sucess] = 'Aluno salvo com sucesso' 
+      	flash[:success] = 'Aluno salvo com sucesso' 
         format.html { redirect_to '/students' }
       else
       	flash[:danger] = 'Preencha os dados corretamente' 
