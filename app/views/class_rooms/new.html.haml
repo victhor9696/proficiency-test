@@ -1,0 +1,3 @@
+%h1 Nova Matricula
+= form_for(@classroom , url: "/classrooms/create") do |f|
+  = render partial: 'form', locals: { f: f }

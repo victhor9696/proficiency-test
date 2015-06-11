@@ -1,0 +1,3 @@
+%h1 Editar Matricula
+= form_for(@classroom , url: "/classrooms/save",method: "post") do |f|
+  = render partial: 'form', locals: { f: f }

@@ -1,0 +1,23 @@
+%h1 Cursos
+%a.btn.btn-success.right{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/courses/new"} Novo Curso
+.form-group
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-xs-12
+          %table.table
+            %tr
+              %th Nome
+              %th Status
+              %th Ações
+            -@courses.each do |course|
+              %tr
+                %td
+                  =course.name
+                %td
+                  =@status[course.status]
+                %td
+                  %a.btn.btn-default{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/courses/"+course.id.to_s+"/edit"} Alterar 
+    .panel-footer
+      .panel-simple-footer
+        %a.btn.btn-info{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/"} Voltar

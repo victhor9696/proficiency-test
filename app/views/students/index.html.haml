@@ -1,0 +1,26 @@
+%h1 Alunos
+%a.btn.btn-success.right{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/students/new"} Novo aluno
+.form-group
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-xs-12
+          %table.table
+            %tr
+              %th Nome
+              %th Número de registro
+              %th Status
+              %th Ações
+            -@students.each do |student|
+              %tr
+                %td
+                  =student.name
+                %td
+                  =student.register_number
+                %td
+                  =@status[student.status]
+                %td
+                  %a.btn.btn-default{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/students/"+student.id.to_s+"/edit"} Alterar 
+    .panel-footer
+      .panel-simple-footer
+        %a.btn.btn-info{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/"} Voltar

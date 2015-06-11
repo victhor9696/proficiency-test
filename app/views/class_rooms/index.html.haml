@@ -1,0 +1,32 @@
+%h1 Matriculas
+%a.btn.btn-success.right{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/classrooms/new"} Nova matricula
+.form-group
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-xs-12
+          %table.table
+            %tr
+              %th id matricula
+              %th Aluno
+              %th Numero de registro
+              %th Curso
+              %th Data
+              %th Ações
+            -@classrooms.each do |classroom|
+              %tr
+                %td
+                  =classroom.id
+                %td
+                  =classroom.student.name
+                %td
+                  =classroom.student.register_number
+                %td
+                  =classroom.course.name
+                %td
+                  =classroom.entry_at.strftime("%d/%m/%Y")
+                %td
+                  %a.btn.btn-default{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/classrooms/"+classroom.id.to_s+"/edit"} Alterar 
+    .panel-footer
+      .panel-simple-footer
+        %a.btn.btn-info{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/"} Voltar

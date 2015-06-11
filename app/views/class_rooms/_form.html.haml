@@ -1,0 +1,32 @@
+.form-group
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-xs-4
+          %label.control-label Aluno
+          %input{:name=> 'classroom[id]',:value=>@classroom.id,:type=>'hidden'}
+          %select{class: 'form-control', id: 'status',name: 'classroom[student_id]'}
+            -selected = ""
+            -@students.each do |student|
+              -if(@classroom.student_id == student.id)
+                %option{value: "#{student.id}",selected: "selected"} #{student.name}
+              -else
+                %option{value: "#{student.id}"} #{student.name}
+        .col-xs-3
+          %label.control-label Curso
+          %select{class: 'form-control', id: 'status',name: 'classroom[course_id]'}
+            -selected = ""
+            -@courses.each do |course|
+              -if(@classroom.course_id == course.id)
+                %option{value: "#{course.id}",selected: "selected"} #{course.name}
+              -else
+                %option{value: "#{course.id}"} #{course.name}
+        .col-xs-3
+          %label.control-label Data
+          %input.form-control.date{:name => "classroom[entry_at]", :type => "text",:presence=>'true', :value => @classroom.entry_at.nil? ? "" : @classroom.entry_at.strftime("%d/%m/%Y") }/
+    .panel-footer
+      .panel-simple-footer
+        %button.btn.btn-success{:type => "submit",:id => "btnLanguage"} Salvar
+        %a.btn.btn-info{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/"} Voltar
+:javascript
+  dateSetup();

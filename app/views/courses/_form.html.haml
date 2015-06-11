@@ -1,0 +1,25 @@
+
+.form-group
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-xs-3
+          %input.form-control.hide{:name => "course[id]",:id=>"id" ,:type => "hidden", :value => "#{@course.id}"}/
+          %label.control-label Nome
+          %input.form-control{:name => "course[name]", :type => "text",:placeholder => "Nome do aluno",:presence=>'true', :value => "#{@course.name}"}/
+        .col-xs-3
+          %label.control-label Status
+          %select{class: 'form-control', id: 'status',name: 'course[status]'}
+            -selected = ""
+            -@status.each do |key,value|
+              -if(@course.status == key)
+                %option{value: "#{key}",selected: "selected"} #{value}
+              -else
+                %option{value: "#{key}"} #{value}
+        .col-xs-6
+          %label.control-label Descrição
+          %input.form-control{:name => "course[descripiton]", :type => "text",:placeholder => "Descrição do curso",:presence=>'true', :value => "#{@course.name}"}/
+    .panel-footer
+      .panel-simple-footer
+        %button.btn.btn-success{:type => "submit",:id => "btnLanguage",:value=> "form_vacant"} Salvar
+        %a.btn.btn-info{:type => "button",:id => "btnLanguage",:value=> "form_vacant",:href=> "/"} Voltar

@@ -1,0 +1,41 @@
+!!! html5
+%html
+  %title Projeto Curriculo  
+  =csrf_meta_tags
+  =stylesheet_link_tag "application", :media=>"all"
+  =javascript_include_tag "application"
+  %header
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"} Internet Sistemas
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav.navbar-right
+          %form.navbar-form.navbar-right
+            %input.form-control{:placeholder => "Search...", :type => "text"}
+
+    .container-fluid.adapt           
+      .row
+        .col-xs-2
+          %ul.nav.nav-sidebar.sidebarD
+            %li.active
+              %a{:href => "/students/"} Alunos
+            %li
+              %a{:href => "/courses"} Cursos
+            %li
+              %a{:href => "/classrooms"} Matriculas 
+        .col-xs-8
+          - flash.each do |key, value|
+            %div{:class => "alert alert-#{key}",:role => "alert"}
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button", :id=> 'closeFlash'} ×
+              = value
+          - flash = nil
+          .row
+            .coll-md-12
+              =yield

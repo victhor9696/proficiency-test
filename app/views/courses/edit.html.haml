@@ -1,0 +1,3 @@
+%h1 Editar Curso
+= form_for(@course , url: "/courses/save",method: "post") do |f|
+  = render partial: 'form', locals: { f: f }

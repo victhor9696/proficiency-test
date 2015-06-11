@@ -1,0 +1,21 @@
+%h1 Dashboard
+
+.row
+  .col-xs-4
+    .students_dashboard
+      %span
+        %b
+          total de estudantes:
+          =@students.count
+  .col-xs-4
+    .courses_dashboard
+      %span
+        %b
+          total de Cursos:
+          =@courses.count 
+  .col-xs-4
+    .classrooms_dashboard
+      %span
+        %b
+          total de Matriculas:
+          =@classrooms.count 
